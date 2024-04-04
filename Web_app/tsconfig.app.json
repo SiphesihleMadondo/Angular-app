@@ -1,0 +1,33 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/app",
+    "types": [
+      "@angular/localize"
+    ],
+    "paths": {
+      "jszip": [
+        "node_modules/jszip/dist/jszip.min.js"
+      ],
+      "globalize": [
+        "node_modules/globalize/dist/globalize"
+      ],
+      "globalize/*": [
+        "node_modules/globalize/dist/globalize/*"
+      ],
+      "cldr": [
+        "node_modules/cldrjs/dist/cldr"
+      ],
+      "cldr/*": [
+        "node_modules/cldrjs/dist/cldr/*"
+      ]
+    },
+    
+  },
+  "files": [
+    "src/main.ts"
+  ],
+  "include": [
+    "src/**/*.d.ts"
+  ]
+}

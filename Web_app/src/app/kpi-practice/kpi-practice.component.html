@@ -1,0 +1,69 @@
+<div class="container" *ngIf="receavedCode !=undefined">
+
+<div class="row">
+
+<div class="col-lg-6 col-md-6 mb-6">
+    <div class="subtitle">
+        Client Data Integration
+    </div>
+    <div class="legend">
+    Advice Tool Activity
+   
+        <table class="legendposition">
+        <br/>
+     
+        <tr>
+
+        <td>
+        <div class="divInter">
+        <input class="form-check-input" readonly [checked]="false" [ngStyle]="{'color': _shared_service.prim_color, 'border-color':_shared_service.prim_color, 'background-color':_shared_service.prim_color}" checked type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"/>
+        Data Integration
+        </div>
+        </td>
+        &nbsp;&nbsp;
+
+        <td>
+        <div class="divIWP">
+        <input class="form-check-input" readonly [checked]="false" [ngStyle]="{'color': _shared_service.sec_color, 'border-color':_shared_service.sec_color, 'background-color':_shared_service.sec_color}" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"/>
+         IWP
+        </div>
+        </td>
+        &nbsp;&nbsp;
+
+        <td>
+        <div class="divPGP">
+        <input class="form-check-input" readonly [ngStyle]="{'color': _shared_service.prim_color, 'border-color': 'hsl(206, 3%, 46%)', 'background-color':'hsl(206, 3%, 46%)'}" [checked]="false" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" />
+        PGP
+        </div>
+        </td>
+
+        </tr>
+       </table>
+    </div>
+    <br/>
+    <highcharts-chart *ngIf="isHighcharts"  [Highcharts]="kpi_chart" [options]="kpi_chartOptions" [constructorType]="kpi_chartConstructor"
+    [update]="updateFlag" >
+
+
+    </highcharts-chart> 
+
+    <!-- <p> value from service {{receavedCode}}</p> -->
+
+</div>
+
+
+<div class="col-lg-6 col-md-6 mb-6" >
+    <div class="subtitle1">Advisory Outcomes</div>
+    <div class="maintitle">Compliance
+        <div class="subtitle"> (Weighting: 70% New Business and 30% Reviews)</div></div>
+        <br>
+@if (displayOverall > 0 || displayNewBusiness > 0 || displayReviews > 0) {
+
+    <highcharts-chart *ngIf="compliance_chart != undefined" [Highcharts]="compliance_chart" [options]="compliance_options" [constructorType]="compliance_constructor">
+        
+    </highcharts-chart> 
+}
+
+
+</div>
+</div>

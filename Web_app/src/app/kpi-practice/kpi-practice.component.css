@@ -1,0 +1,106 @@
+.compliance_content{
+    position: absolute; 
+    top: 800px; 
+    margin-left: 210px; 
+    text-align: left; 
+    background-color: white; 
+    height: 190px; 
+    width: 130px; 
+    border-radius: 70px;
+  }
+  .complianceLegMain{
+    text-align: center;
+    width: 210px; 
+    font-size: 20px;
+  }
+  .dotLodgeLeg2Comp{
+    margin: 0px 0px 0px -50px;
+  }
+  .compLegSub1{
+    margin: 0px 0px 0px 50px; 
+    width: 210px; 
+    font-size: 10px;
+  }
+  .dotLodgeLegComp{
+    margin: 0px 0px 0px 5px;
+  }
+  .compLegSub{
+    margin: 0px 0px 0px 0px; 
+    text-align: center;
+    width: 250px; 
+    font-size: 12px;
+  }
+  .dotLodgeLeg3Comp{
+    margin: 0px 0px 0px 0px;
+  }
+  .legend{
+    width: 800px;
+    height: max-content;
+    font-weight: bolder;
+    font-size: 20px;
+  }
+  .subtitle{
+    width: 800px;
+    height: max-content;
+    font-size: 16px;
+    color: hsl(206, 3%, 50%);
+  }
+
+
+  label{
+    color: black;
+    font-size: 16px;
+    font-family: Arial;
+  }
+  .legendposition
+  {
+    margin-left: 0%;
+    display: inline;
+    width: fit-content;
+  }
+  td {
+    width: max-content;
+    height: max-content;
+    font-size: 15px;
+    font-weight: normal;
+    color: hsl(206, 3%, 50%);
+  }
+
+  .subtitle1{
+     font-size: 16px;
+  }
+  .maintitle{
+    font-family: poppins ;
+    font-size: 20px;
+  }
+  .subtitle{
+    font-size:  10px;;
+  }
+
+  h3{
+    color: darkred;
+  }
+ 
+ @media screen and (max-width: 1400px){
+  .clientInt_chart{
+     /* background-color: olive ; */
+     top: 90%;
+     left: 3%;
+     width: max-content;
+     height: max-content;
+     position: absolute;
+   }
+ }
+
+ @media screen and (max-width: 390px){
+  .clientInt_chart{
+    background-color: olive ; 
+    top: 110%;
+    left: 3%;
+    width: 360px;
+    height: max-content;
+    position: absolute;
+    
+  }
+ }
+ 

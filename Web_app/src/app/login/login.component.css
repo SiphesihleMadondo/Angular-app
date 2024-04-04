@@ -1,0 +1,60 @@
+
+
+.container .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+.mat-form-field {
+   display: inline;
+   border: 1px solid rgb(67, 214, 243);
+}
+
+.example-right-align {
+  text-align: right;
+}
+input{
+  border: 1px solid rgb(67, 214, 243);
+}
+
+.container {
+  display: -moz-box;
+  flex-direction: column;
+  padding: 10px;
+  border: rgba(237, 236, 241, 0.103); 
+  /* border-color: violet 1px; */
+
+  height: max-content;
+  width: max-content;
+  border-style: solid;
+  margin: auto;
+}
+
+
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 6px 6px 4px 10px rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 30%;
+  height: 40%;
+  margin: auto;
+
+  position: absolute; /* position the card goes with top, bottom, left, and right properties */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border: 1px solid rgb(67, 214, 243);;
+  border-radius: 5%;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.2); 
+}
+
+/* Add some padding inside the card container */
+.container {
+  padding: 2px 16px;
+}
+
+#login{
+  border-radius: 50%;
+}

@@ -1,0 +1,109 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+<dx-popup id="popup" [title]="selectedPartner " [visible]="isPopupVisible" [hideOnOutsideClick]="true" [height]="500"
+  [width]="700" [dragEnabled]="true" position="center" contentTemplate="popup-content">
+  <div *dxTemplate="let data of 'popup-content'">
+    <table id="table" class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Date</th>
+          <th scope="col">Excluding Cash</th>
+          <th scope="col">Including Cash</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let data of transitionData">
+          <td>{{data.date.substring(0, 10) | date: "MMM, yyyy"}}</td>
+          <td>{{data.exclCash | currency:'R'}}</td>
+          <td>{{data.inclCash | currency:'R'}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <span class="goal_tag" *ngIf="this.check && isVisible == true">
+      <i class="bi-exclamation-circle" [ngStyle]="{'color': prim_color}"></i>
+      Only <label [ngStyle]="{'color': prim_color}">{{valueToGoal}}% </label> to go </span>
+  </div>
+</dx-popup>
+
+<dx-popup id="pie_pop" [title]="selectedPartner " [visible]="isPieVisible" [hideOnOutsideClick]="true" [height]="500"
+  [width]="700" [dragEnabled]="true" position="center">
+
+  <table id="table" class="table table-hover">
+    <thead>
+      <tr>
+      </tr>
+      <tr>
+        <th></th>
+        <th *ngFor="let data of logdements" scope="col">{{data.dateMonth.substring(0, 10) | date: "MMM, yyyy"}}</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>Partner Directed Advice Count</td>
+        <td *ngFor="let data of logdements">{{data.partnerDirectedAdviceCount}}</td>
+
+      </tr>
+      <tr>
+        <td>Standardized Count</td>
+        <td *ngFor="let data of logdements">{{data.standardizedCount}}</td>
+      </tr>
+
+      <tr>
+        <td>Enhanced Count</td>
+        <td *ngFor="let data of logdements">{{data.enhancedCount}}</td>
+      </tr>
+
+      <tr>
+        <td>Optimized Count</td>
+        <td *ngFor="let data of logdements">{{data.optimizedCount}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</dx-popup>
+
+
+<dx-select-box class="list" [dataSource]="data" (onValueChanged)="onValueChanged($event)" [searchEnabled]="true"
+  label="Partner" labelMode="floating">
+</dx-select-box>
+
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-lg-6 col-md-6 mb-6">
+      <highcharts-chart class="transtion" *ngIf="transitionData != undefined " [Highcharts]="chart"
+        [options]="chartOption">
+      </highcharts-chart>
+
+      <span class="auatrans_goal_tag" *ngIf="selectPartnerCode == 2696 || selectPartnerCode == 5254">
+        <i class="bi-exclamation-circle" [ngStyle]="{'color': _shared_service.prim_color}"></i>
+        Only <label [ngStyle]="{'color': _shared_service.prim_color}">{{valueToGoal}}% </label> to go </span>
+
+      <label class="Show_data"
+        *ngIf="this.exclCash.length == 0 && this.inclCash.length == 0 && this.aua_dates.length == 0">{{nodataLoad}}</label>
+    </div>
+
+    <div class="col-lg-6 col-md-6 mb-6">
+      <highcharts-chart class="lodgements" *ngIf="logdements && logdements.length > 0" [Highcharts]="chart"
+        [options]="pie_chart_option">
+      </highcharts-chart>
+      <span class="lodge_goal_tag" *ngIf="this.check && this.total_percentage >= 100 ">
+        <label style="margin: 5px;" [ngStyle]="{'color': 'hsl(218, 100%, 55%)'}"> Goal Achieved</label> <i
+          class="bi-check-circle" [ngStyle]="{'color': 'hsl(218, 100%, 55%)'}"></i>
+      </span>
+      &nbsp;
+      <span class="tier_tag" *ngIf="selectedTier != undefined">
+        <i class="bi-stack" [ngStyle]="{'color': 'hsl(218, 100%, 55%)'}"></i>
+        <label style="margin: 5px;" [ngStyle]="{'color': 'hsl(218, 100%, 55%)'}">{{selectedTier}}</label>
+      </span>
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- </div> -->
